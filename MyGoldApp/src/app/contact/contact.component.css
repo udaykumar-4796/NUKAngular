@@ -1,0 +1,24 @@
+
+h1{
+    font-weight: bold;
+    font-style: italic;
+    font-family: play;
+    color: cornflowerblue;
+    text-align: center;
+}
+.contact-form{
+    background: #fff;
+    border: cornflowerblue solid 2px;
+}
+.contact-image{
+    text-align: center;
+}
+h6{
+    color: cornflowerblue;
+    font-style: italic;
+}
+p{
+    font-style: italic;
+    color: orangered;
+    font-weight: bold;
+}

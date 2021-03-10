@@ -1,0 +1,19 @@
+.titleStyle{
+    font-style: italic;
+    font-weight: bold;
+    color: cornflowerblue;
+}
+.inUp{
+    border: white;
+    font-family: play;
+    font-variant: inherit;
+}
+.mainContainer{
+    background-color:white;
+}
+.my{
+    align-content: flex-end;
+}
+.textsize{
+    font-size: 15px
+}

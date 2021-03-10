@@ -1,0 +1,17 @@
+.wholecontainer{
+    border: cornflowerblue solid 2px;
+}
+.gap{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+h3{
+    font-style: italic;
+    font-family: play;
+    color: cornflowerblue;
+}
+.paginationstyle{
+    margin-top: 10%;
+}

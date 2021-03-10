@@ -1,0 +1,17 @@
+.wholecontainer{
+    border: cornflowerblue solid 2px;
+}
+.marginstyle{
+    margin-right: 2%;
+    margin-left: 2%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.headingstyle{
+    color: cornflowerblue;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    margin-top: 7%;
+    margin-bottom: 1%;
+}
