@@ -1,38 +1,52 @@
-<div class="container contact-form">
+<div class="container">
     <div class="contact-image">
-        <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
+        <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact" />
     </div>
     <div class="container">
-        <form>
-            <h1>Drop Us A Message <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-chat-square-fill" viewBox="0 0 16 16">
-                <path d="M2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-              </svg></h1>
+        <form (ngSubmit)="onSubmit()" #f="ngForm">
+            <h1>Drop Us A Message <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                    class="bi bi-chat-square-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                </svg></h1>
             <div class="row">
-                <div class="col-6">
+                <div class="col-6" ngModelGroup="userData" #sendnow="ngModelGroup">
                     <div class="form-group">
-                        <input type="text" name="name" class="form-control" placeholder="Your Name *" value="" />
+                        <input type="text" name="name" class="form-control" placeholder="Your Name *" id="name" ngModel
+                            required #name="ngModel">
+                        <span class="help-block text-danger" *ngIf="!name.valid && name.touched"><small>enter your
+                                name</small></span>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="email" class="form-control" placeholder="Your Email *" value="" />
+                        <input type="text" name="email" class="form-control" placeholder="Your Email *" id="email" email
+                            ngModel required #email="ngModel">
+                        <span class="help-block text-danger" *ngIf="!email.valid && email.touched"><small>enter your
+                                email</small></span>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="phone" class="form-control" placeholder="Your Phone Number *" value="" />
+                        <input type="tel" name="phone" class="form-control" placeholder="Your Phone Number *" id="phone"
+                            ngModel required #phone="ngModel">
+                        <span class="help-block text-danger" *ngIf="!phone.valid && phone.touched"><small>enter your
+                                phone number</small></span>
                     </div>
-                    <div class="form-group">
-                        <button class="brn btn-primary btn-lg" type="submit">Submit</button>
-                    </div>
+                    <button class="brn btn-primary btn-sm" type="submit">Send</button>
+                    <span class="help-block text-danger" *ngIf="!sendnow.valid && sendnow.touched"><small>enter valid details</small></span>
                 </div>
                 <div class="col-6">
                     <div class="form-group">
-                        <textarea name="message" class="form-control" placeholder="Your Message *"
-                            style="width: 100%; height: 150px;"></textarea>
+                        <textarea name="message" id="message" class="form-control" placeholder="Your Message *" ngModel
+                            required #message="ngModel" style="width: 100%; height: 150px;"></textarea>
+                        <span class="help-block text-danger" *ngIf="!message.valid && message.touched"><small>please
+                                enter message</small></span>
                     </div>
                     <div>
                         <div class="row">
                             <div>
-                                <h6>Mail <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
-                                    <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
-                                  </svg> :  </h6>
+                                <h6>Mail <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z" />
+                                    </svg> : </h6>
                             </div>
                             <div>
                                 <p>info@nuksoftwares.in</p>
@@ -40,9 +54,11 @@
                         </div>
                         <div class="row">
                             <div>
-                                <h6>Ph No <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-inbound-fill" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM15.854.146a.5.5 0 0 1 0 .708L11.707 5H14.5a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 1 0v2.793L15.146.146a.5.5 0 0 1 .708 0z"/>
-                                  </svg> :  </h6>   
+                                <h6>Ph No <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-telephone-inbound-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM15.854.146a.5.5 0 0 1 0 .708L11.707 5H14.5a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 1 0v2.793L15.146.146a.5.5 0 0 1 .708 0z" />
+                                    </svg> : </h6>
                             </div>
                             <div>
                                 <p>040-569632545</p>
@@ -53,4 +69,7 @@
             </div>
         </form>
     </div>
+</div>
+<div>
+    {{f.value |json}}
 </div>

@@ -1,56 +1,82 @@
-
 <div class="container">
   <div class="container headingstyle">
     <h1>Register here to have account</h1>
- </div>
-  <form>
-    <div class="row justify-content-center">
-      <div class="col-8 marginstyle">
-        
+  </div>
+  <form (ngSubmit)="onSubmit()" #f="ngForm">
+    <div id="user-data">
+      <div class="row justify-content-center" ngModelGroup="username" #username="ngModelGroup">
+        <div class="col-8 marginstyle">
           <div class="row">
             <div class="form-group col-4">
-              <input type="text" name="firstname" class="form-control" placeholder="First Name">
+              <input type="text" name="firstname" class="form-control" placeholder="First Name" id="fname"
+                [ngModel]="defaultvalue.firstname" required #fname="ngModel">
+              <span class="help-block text-danger" *ngIf="!fname.valid && fname.touched"><small>please enter first name</small></span>
             </div>
             <div class="form-group col-4">
-              <input type="text" name="middlename"  class="form-control" placeholder="Middle Name(optional)">
+              <input type="text" name="middlename" class="form-control" placeholder="Middle Name(optional)" id="mname"
+                [ngModel]="defaultvalue.middlename">
             </div>
             <div class="form-group col-4">
-              <input type="text" name="lastname" class="form-control" placeholder="Last Name">
+              <input type="text" name="lastname" class="form-control" placeholder="Last Name" id="lname"
+                [ngModel]="defaultvalue.lastname" required #lname="ngModel">
+              <span class="help-block text-danger" *ngIf="!lname.valid && lname.touched"><small>please enter last name</small></span>
             </div>
-          </div>   
-        
+          </div>
+          <span class="help-block text-danger" *ngIf="!username.valid && username.touched"><small>Invalid username</small></span>
+        </div>
       </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-8 marginstyle">
-          <div class="row">
-            <div class="form-group col-8">
-              <input type="email" name="email" class="form-control" placeholder="Email">
-            </div>
-            <div class="form-group col-4">
-              <input type="tel" name="phone"  class="form-control" placeholder="Mobile Number">
-            </div>
-          </div>   
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-8 marginstyle">
+      <div class="row justify-content-center" ngModelGroup="usercontact" #usercontact="ngModelGroup">
+        <div class="col-8 marginstyle">
           <div class="row">
             <div class="form-group col-8">
-              <input type="password" name="password" class="form-control" placeholder="Passowrd">
+              <input type="email" name="email" class="form-control" placeholder="Email" id="email" ngModel required
+                email #email="ngModel">
+              <span class="help-block text-danger" *ngIf="!email.valid && email.touched"><small>please enter email</small></span>
             </div>
             <div class="form-group col-4">
-              <input type="text" name="confirmpassword"  class="form-control" placeholder="Confirm Password">
+              <input type="tel" name="phone" class="form-control" placeholder="Mobile Number" id="phone" ngModel
+                required #phone="ngModel">
+              <span class="help-block text-danger" *ngIf="!phone.valid && phone.touched"><small>please enter phone number</small></span>
             </div>
-          </div>   
+          </div>
+          <span class="help-block text-danger" *ngIf="!usercontact.valid && usercontact.touched"><small>Invalid user contact details</small></span>
+        </div>
       </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-8 marginstyle">
+      <div class="row justify-content-center" ngModelGroup="userpassword" #userpassword="ngModelGroup">
+        <div class="col-8 marginstyle">
+          <div class="row">
+            <div class="form-group col-8">
+              <input type="password" name="password" class="form-control" placeholder="Passowrd" ngModel required
+                #pass="ngModel">
+              <span class="help-block text-danger" *ngIf="!pass.valid && pass.touched"><small>please enter password</small></span>
+            </div>
+            <div class="form-group col-4">
+              <input type="text" name="confirmpassword" class="form-control" placeholder="Confirm Password" ngModel
+                required #cpass="ngModel">
+              <span class="help-block text-danger" *ngIf="!cpass.valid && cpass.touched"><small>please enter password to confirm</small></span>
+            </div>
+          </div>
+          <span *ngIf="!userpassword.valid && userpassword.touched" class="text-danger"><small>Invalid password</small></span>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-8 radio" *ngFor="let gender of genders">
+          <label>
+            <input type="radio" name="gender" ngModel [value]="gender" required>
+            {{gender}}
+          </label>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-8 marginstyle">
           <div>
-            <button class="btn btn-primary btn-block">Sign Up</button>
-          </div> 
+            <button class="btn btn-primary btn-block" type="submit" [disabled]="!f.valid">Sign Up</button>
+          </div>
+        </div>
       </div>
     </div>
   </form>
+  <div>
+    {{f.value | json}}
+  </div>
 </div>

@@ -15,3 +15,6 @@
     margin-top: 7%;
     margin-bottom: 1%;
 }
+input.ng-invalid.ng-touched{
+    border: red solid 1px;
+}

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -7,9 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
+  genders =['Male','Female'];
+
+
+  defaultvalue ={
+    firstname:'',
+    middlename:'',
+    lastname:''
+  };
+
+  @ViewChild('f') signUpForm : NgForm | undefined;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  // onSubmit(form : NgForm){
+  //   console.log(form);
+  // }
+
+  onSubmit(){
+    console.log('form submitted successfully');
+  console.log(this.signUpForm);
   }
 
 }

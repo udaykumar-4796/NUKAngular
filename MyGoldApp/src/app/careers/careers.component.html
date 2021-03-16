@@ -24,40 +24,25 @@
             <thead>
                 <tr class="table-primary">
                     <th scope="col">S No</th>
+                    <th scope="col">Domain</th>
                     <th scope="col">Location</th>
                     <th scope="col">Designation</th>
-                    <th scope="col">Experience</th>
+                    <th scope="col">Experience(In Years)</th>
                     <th scope="col">Date Of Posted</th>
+                    <th scope="col">Apply</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody *ngFor="let career of mycareer">
                 <tr>
-                    <th>1</th>
-                    <td>Hyderabad</td>
-                    <td>Java Developer</td>
-                    <td>2-4years</td>
-                    <td>12-12-2021</td>
-                </tr>
-                <tr>
-                    <th>2</th>
-                    <td>Bangalore</td>
-                    <td>Angular Developer</td>
-                    <td>3-8years</td>
-                    <td>18-12-2021</td>
-                </tr>
-                <tr>
-                    <th>3</th>
-                    <td>Bangalore</td>
-                    <td>SQL Developer</td>
-                    <td>0-2years</td>
-                    <td>15-12-2021</td>
-                </tr>
-                <tr>
-                    <th>4</th>
-                    <td>Chennai</td>
-                    <td>Technical Support</td>
-                    <td>1-3years</td>
-                    <td>18-12-2021</td>
+                    <td>{{career.sno}}</td>
+                    <td>{{career.domain}}</td>
+                    <td>{{career.location}}</td>
+                    <td>{{career.designation}}</td>
+                    <td>{{career.experience}}</td>
+                    <td>{{career.dateposted}}</td>
+                    <td><a href="#">{{career.apply}} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                      </svg></a></td>
                 </tr>
             </tbody>
         </table>
@@ -67,6 +52,8 @@
           <ul class="pagination justify-content-center pagination-sm">
               <li class="page-item"><a href="#" class="page-link">Previous</a></li>
               <li class="page-item active"><a href="#" class="page-link">1</a></li>
+              <li class="page-item"><a href="#" class="page-link">2</a></li>
+              <li class="page-item"><a href="#" class="page-link">3</a></li>
               <li class="page-item"><a href="#" class="page-link">Next</a></li>
           </ul>
       </nav>
