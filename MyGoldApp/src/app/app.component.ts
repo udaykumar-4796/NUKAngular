@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'MyGoldApp';
+  public parentMsg="This is Parent Message";
+  public msg:any;
+
+  onClick(event : Event){
+     console.log(event);
+  }
 }

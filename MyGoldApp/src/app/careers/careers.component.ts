@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CareerService } from '../career.service';
 import { CareerModel } from './career.model';
 
 @Component({
@@ -8,15 +9,12 @@ import { CareerModel } from './career.model';
 })
 export class CareersComponent implements OnInit {
 
-  mycareer : CareerModel[]=[
-    new CareerModel(1,"Java","hyderabad","Software engineer","2-4","12-03-2021","Click to Apply"),
-    new CareerModel(2,"Angular","bangalore","Desktop engineer","5-8","17-03-2021","Click to Apply"),
-    new CareerModel(3,"Linux","chennai","Technical support","1-3","18-03-2021","Click to Apply")
-  ];
+  public mycareer:any =[];
 
-  constructor() { }
+  constructor(private careerService:CareerService) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    this.careerService.getJobs().subscribe(data => this.mycareer=data);
   }
 
 }

@@ -1,2 +1,3 @@
-<app-dashboard></app-dashboard>
+<app-dashboard (childInfo)="onClick($event)" [fromParent]="parentMsg"></app-dashboard>
+{{msg}}
 <router-outlet></router-outlet>

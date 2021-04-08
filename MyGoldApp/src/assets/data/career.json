@@ -1,0 +1,5 @@
+[
+    {"sno":1,"domain":"Java","location":"Hyderabad","designation":"software Engineer","experience":"2-4","dateposted":"12-03-2021"},
+    {"sno":2,"domain":"Angular","location":"Bangalore","designation":"software Engineer","experience":"3-5","dateposted":"15-04-2021"},
+    {"sno":3,"domain":"SQL","location":"Chennai","designation":"software Engineer","experience":"2-4","dateposted":"01-05-2021"}
+  ]

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
+  @Input() public fromParent:any;
+
+  @Output() public childInfo = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  fireEvent(){
+    this.childInfo.emit("This is from child");
   }
 
 }

@@ -14,6 +14,11 @@ import { SignupComponent } from './signup/signup.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { FormsModule } from '@angular/forms';
+import { EmployeeListComponent } from './home/employee-list/employee-list.component';
+import { EmployeeDetailsComponent } from './home/employee-details/employee-details.component';
+import { EmployeeService } from './home/employee.service';
+import {HttpClientModule} from '@angular/common/http';
+import { CareerService } from './career.service';
 
 @NgModule({
   declarations: [
@@ -27,14 +32,17 @@ import { FormsModule } from '@angular/forms';
     SigninComponent,
     SignupComponent,
     PageNotFoundComponent,
-    ForgotComponent
+    ForgotComponent,
+    EmployeeListComponent,
+    EmployeeDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [EmployeeService,CareerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
